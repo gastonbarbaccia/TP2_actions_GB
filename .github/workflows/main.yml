@@ -1,0 +1,17 @@
+name: Mi primer pipeline
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  saludo:
+    name: Mi primer saludo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+      - name: Mensaje en consola
+        run: |
+          echo "Saludo desde el mensaje 1"

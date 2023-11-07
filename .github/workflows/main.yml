@@ -26,6 +26,8 @@ jobs:
       - name: Mensaje en consola
         run: |
           echo "Saludo desde el mensaje 2"
+      - name: Try to fail
+        run: exit 1
 
   saludo3:
     name: Mi tercer saludo

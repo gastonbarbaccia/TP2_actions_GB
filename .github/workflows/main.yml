@@ -19,9 +19,21 @@ jobs:
   saludo2:
     name: Mi segundo saludo
     runs-on: ubuntu-latest
+    needs: [saludo]
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
       - name: Mensaje en consola
         run: |
           echo "Saludo desde el mensaje 2"
+
+  saludo3:
+    name: Mi tercer saludo
+    runs-on: ubuntu-latest
+    needs: [saludo2]
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+      - name: Mensaje en consola
+        run: |
+          echo "Saludo desde el mensaje 3"

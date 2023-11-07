@@ -19,7 +19,6 @@ jobs:
   saludo2:
     name: Mi segundo saludo
     runs-on: ubuntu-latest
-    needs: [saludo]
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
@@ -32,7 +31,6 @@ jobs:
   saludo3:
     name: Mi tercer saludo
     runs-on: ubuntu-latest
-    needs: [saludo2]
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3

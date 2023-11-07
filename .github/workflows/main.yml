@@ -15,3 +15,13 @@ jobs:
       - name: Mensaje en consola
         run: |
           echo "Saludo desde el mensaje 1"
+
+  saludo2:
+    name: Mi segundo saludo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+      - name: Mensaje en consola
+        run: |
+          echo "Saludo desde el mensaje 2"

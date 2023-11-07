@@ -83,8 +83,8 @@ jobs:
         uses: actions/checkout@v3
       - uses: trstringer/manual-approval@v1
         with:
-          secret: ${{ github.TOKEN }}
+          secret: ${{ TOKEN_GITHUB }}
           approvers: gastonbarbaccia
-      - name: Prueba4
+      - name: Despliegue en AWS
         run: |
-          echo "Mensaje de deploy"
+          echo "Despliegue exitoso"

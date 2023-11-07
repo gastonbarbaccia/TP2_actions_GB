@@ -5,35 +5,82 @@ on:
     branches:
       - "main"
 
+#jobs:
+#  saludo:
+#    name: Mi primer saludo
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Check out the repo
+#        uses: actions/checkout@v3
+#      - name: Mensaje en consola
+#        run: |
+#          echo "Saludo desde el mensaje 1"
+
+#  saludo2:
+#    name: Mi segundo saludo
+#    runs-on: ubuntu-latest
+#    needs: [saludo]
+#    steps:
+#      - name: Check out the repo
+#        uses: actions/checkout@v3
+#      - name: Mensaje en consola
+#        run: |
+#         echo "Saludo desde el mensaje 2"
+#      - name: Try to fail
+#        run: exit 1
+
+#  saludo3:
+#    name: Mi tercer saludo
+#    runs-on: ubuntu-latest
+#    needs: [saludo2]
+#    steps:
+#      - name: Check out the repo
+#        uses: actions/checkout@v3
+#      - name: Mensaje en consola
+#        run: |
+#          echo "Saludo desde el mensaje 3"
+
+
 jobs:
-  saludo:
-    name: Mi primer saludo
+  build:
+    name: Etapa de compilacion
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
-      - name: Mensaje en consola
+      - name: Prueba1
         run: |
-          echo "Saludo desde el mensaje 1"
+          echo "Mensaje de build"
 
-  saludo2:
-    name: Mi segundo saludo
+  test:
+    name: Etapa de test
     runs-on: ubuntu-latest
+    needs: [build]
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
-      - name: Mensaje en consola
+      - name: Prueba2
         run: |
-          echo "Saludo desde el mensaje 2"
-      - name: Try to fail
-        run: exit 1
+          echo "Mensaje de test"
 
-  saludo3:
-    name: Mi tercer saludo
+  release:
+    name: Etapa de release
     runs-on: ubuntu-latest
+    needs: [test]
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
-      - name: Mensaje en consola
+      - name: Prueba3
         run: |
-          echo "Saludo desde el mensaje 3"
+          echo "Mensaje de release"
+
+  deploy:
+    name: Etapa de despligue
+    runs-on: ubuntu-latest
+    needs: [release]
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+      - name: Prueba4
+        run: |
+          echo "Mensaje de deploy"
